@@ -7,13 +7,13 @@ const libroSchema = new Schema({
     },
     autor:{
         type: String,
-        requiered:true
+        required:true
     },
-    numero_paginas:{
+    numeroPaginas:{
         type: Number,
         required: true
     },
-    nombre_libro:{
+    nombreLibro:{
         type: String,
         required: true
     }
