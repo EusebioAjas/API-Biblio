@@ -46,4 +46,13 @@ libroCtrl.actualizar = async (req, res) => {
     res.json({ message: error });
   }
 };
+
+libroCtrl.eliminar = async (req, res) => {
+    try{
+        const eliminado = await Libro.findByIdAndRemove(req.params.id);
+        res.json({eliminado});
+    }catch(err){
+        res.json({ message: err });
+    }
+}
 module.exports = libroCtrl;
