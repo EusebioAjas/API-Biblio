@@ -1,14 +1,20 @@
 libroCtrl = {};
-const Libro = require('../modelo/libro');
+const Libro = require("../modelo/libro");
 
-libroCtrl.crear = async (req,res) => {
+libroCtrl.crear = async (req, res) => {
+  const { isbn, autor, numeroPaginas, nombreLibro } = req.body;
+  try {
     const nuevoLibro = new Libro({
-        isbn: req.body.isbn,
-        autor: req.body.autor,
-        numeroPaginas: req.body.numeroPaginas,
-        nombreLibro: req.body.nombreLibro,
+      isbn,
+      autor,
+      numeroPaginas,
+      nombreLibro
     });
-    console.log(nuevoLibro);
-}
+    await nuevoLibro.save();
+    res.json({ nuevoLibro });
+  } catch (error) {
+      res.json({message: error});
+  }
+};
 
 module.exports = libroCtrl;
