@@ -48,11 +48,11 @@ libroCtrl.actualizar = async (req, res) => {
 };
 
 libroCtrl.eliminar = async (req, res) => {
-    try{
-        const eliminado = await Libro.findByIdAndRemove(req.params.id);
-        res.json({eliminado});
-    }catch(err){
-        res.json({ message: err });
-    }
-}
+  try {
+    const eliminado = await Libro.remove({_id:req.params.id});
+    res.json({ eliminado });
+  } catch (err) {
+    res.json({ message: err });
+  }
+};
 module.exports = libroCtrl;
