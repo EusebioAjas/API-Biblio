@@ -1,6 +1,4 @@
-###### `REST-API` `MongoDB` `Nodejs` 
 # API-Biblio
-- [ ] Build a REST API for a managing Books with DataBase, Using Express and MongoDB
 
 ## Requeriments
 1. Node.js(v13.11.0)
